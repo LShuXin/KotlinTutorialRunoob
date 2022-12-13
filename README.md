@@ -2521,8 +2521,8 @@ interface MyInterface {
 
   fun bar()
   fun foo() {
-​    // 可选的方法体
-​    println("foo")
+    // 可选的方法体
+    println("foo")
   }
 }
 
@@ -2530,7 +2530,7 @@ class Child : MyInterface {
   override var name: String = "runoob" // 重写属性
 
   override fun bar() {                 // 重写方法
-​    println("bar")
+    println("bar")
   }
 }
 
@@ -2889,12 +2889,12 @@ class D {
 class C {
   fun baz() { println("C baz") }
   fun D.foo() {
-​    bar()  // 调用 D.bar
-​    baz()  // 调用 C.baz
+    bar()  // 调用 D.bar
+    baz()  // 调用 C.baz
   }
 
   fun caller(d: D) {
-​    d.foo()  // 调用扩展函数
+    d.foo()  // 调用扩展函数
   }
 }
 
@@ -2926,12 +2926,12 @@ class C {
   fun bar() { println("C bar") } // 与 D 类 的 bar 同名
 
   fun D.foo() {
-​    bar()          // 调用 D.bar()，扩展接收者优先
-​    this@C.bar()   // 调用 C.bar()
+    bar()          // 调用 D.bar()，扩展接收者优先
+    this@C.bar()   // 调用 C.bar()
   }
   
   fun caller(d: D) {
-​    d.foo()        // 调用扩展函数
+    d.foo()        // 调用扩展函数
   }
 }
 
@@ -2960,25 +2960,25 @@ class D1 : D() {}
 
 open class C {
   open fun D.foo() {
-​    println("D.foo in C")
+    println("D.foo in C")
   }
 
   open fun D1.foo() {
-​    println("D1.foo in C")
+    println("D1.foo in C")
   }
 
   fun caller(d: D) {
-​    d.foo()  // 调用扩展函数
+    d.foo()  // 调用扩展函数
   }
 }
 
 class C1 : C() {
   override fun D.foo() {
-​    println("D.foo in C1")
+    println("D.foo in C1")
   }
 
   override fun D1.foo() {
-​    println("D1.foo in C1")
+    println("D1.foo in C1")
   }
 }
  
@@ -3016,48 +3016,48 @@ D.foo in C
 ```
   class MyClass {
 
-​        companion object {
-​          val myClassField1: Int = 1
-​          var myClassField2 = "this is myClassField2"
+        companion object {
+          val myClassField1: Int = 1
+          var myClassField2 = "this is myClassField2"
 
-​          fun companionFun1() {
-​            println("this is 1st companion function.")
-​            foo()
-​          }
+          fun companionFun1() {
+            println("this is 1st companion function.")
+            foo()
+          }
 
-​          fun companionFun2() {
-​            println("this is 2st companion function.")
-​            companionFun1()
-​          }
-​        }
+          fun companionFun2() {
+            println("this is 2st companion function.")
+            companionFun1()
+          }
+        }
 
-​        fun MyClass.Companion.foo() {
-​          println("伴随对象的扩展函数（内部）")
-​        }
+        fun MyClass.Companion.foo() {
+          println("伴随对象的扩展函数（内部）")
+        }
 
-​        fun test2() {
-​          MyClass.foo()
-​        }
+        fun test2() {
+          MyClass.foo()
+        }
 
-​        init {
-​          test2()
-​        }
-​  }
+        init {
+          test2()
+        }
+  }
 
-​  val MyClass.Companion.no: Int
-​      get() = 10
+  val MyClass.Companion.no: Int
+      get() = 10
 
-​  fun MyClass.Companion.foo() {
-​      println("foo 伴随对象外部扩展函数")
-​  }
+  fun MyClass.Companion.foo() {
+      println("foo 伴随对象外部扩展函数")
+  }
 
-​  fun main(args: Array<String>) {
-​        println("no:${MyClass.no}")
-​        println("field1:${MyClass.myClassField1}")
-​        println("field2:${MyClass.myClassField2}")
-​        MyClass.foo()
-​        MyClass.companionFun2()
-​  }
+  fun main(args: Array<String>) {
+        println("no:${MyClass.no}")
+        println("field1:${MyClass.myClassField1}")
+        println("field2:${MyClass.myClassField2}")
+        MyClass.foo()
+        MyClass.companionFun2()
+  }
 ```
 
 
@@ -3067,17 +3067,17 @@ D.foo in C
 ````
       no:10
 
-​      field1:1
+      field1:1
 
-​      field2:this is myClassField2
+      field2:this is myClassField2
 
-​      foo 伴随对象外部扩展函数
+      foo 伴随对象外部扩展函数
 
-​      this is 2st companion function.
+      this is 2st companion function.
 
-​      this is 1st companion function.
+      this is 1st companion function.
 
-​      foo 伴随对象外部扩展函数 
+      foo 伴随对象外部扩展函数
 ````
 
 
@@ -3138,8 +3138,6 @@ fun main(args: Array<String>) {
 }
 ```
 
-
-
 输出结果为：
 
 ```
@@ -3169,11 +3167,11 @@ println("$name, $age years of age")     // prints "Jane, 35 years of age"
 
 **密封类**
 
-密封类用来表示受限的类继承结构：当一个值为有限几种的类型, 而不能有任何其他类型时。在某种意义上，他们是枚举类的扩展：枚举类型的值集合 也是受限的，但每个枚举常量只存在一个实例，而密封类 的一个子类可以有可包含状态的多个实例。
+密封类用来表示受限的类继承结构：当一个值为有限几种的类型, 而不能有任何其他类型时。在某种意义上，他们是枚举类的扩展：枚举类型的值集合也是受限的，但每个枚举常量只存在一个实例，而密封类的一个子类可以有可包含状态的多个实例。
 
 声明一个密封类，使用 **sealed** 修饰类，密封类可以有子类，但是所有的子类都必须要内嵌在密封类中。
 
-sealed 不能修饰 interface ,abstract class(会报 warning,但是不会出现编译错误)
+sealed 不能修饰 interface, abstract class(会报 warning, 但是不会出现编译错误)
 
 ```
 sealed class Expr
@@ -3197,43 +3195,28 @@ fun eval(expr: Expr): Double = when (expr) {
 
 ```
 fun eval(expr: Expr): Double = when(expr) {
-
   is Expr.Const -> expr.number
-
   is Expr.Sum -> eval(expr.e1) + eval(expr.e2)
-
   Expr.NotANumber -> Double.NaN
-
   // 不再需要 `else` 子句，因为我们已经覆盖了所有的情况
-
 }
 ```
-
-
 
 
 
    我的理解密封类就是一种专门用来配合 when 语句使用的类，举个例子，假如在 Android 中我们有一个 view，我们现在想通过 when 语句设置针对 view 进行两种操作：显示和隐藏，那么就可以这样做：
 
 ```
- sealed class UiOp {
+sealed class UiOp {
+     object Show: UiOp()
+     object Hide: UiOp()
+} 
 
-​        object Show: UiOp()
-
-​        object Hide: UiOp()
-
-​      } 
-
-​      fun execute(view: View, op: UiOp) = when (op) {
-
-​        UiOp.Show -> view.visibility = View.VISIBLE
-
-​        UiOp.Hide -> view.visibility = View.GONE
-
-​      }
+fun execute(view: View, op: UiOp) = when (op) {
+     UiOp.Show -> view.visibility = View.VISIBLE
+     UiOp.Hide -> view.visibility = View.GONE
+}
 ```
-
-
 
 
 
@@ -3241,36 +3224,20 @@ fun eval(expr: Expr): Double = when(expr) {
 
 ```
 sealed class UiOp {
+    object Show: UiOp()
+    object Hide: UiOp()
+    class TranslateX(val px: Float): UiOp()
+    class TranslateY(val px: Float): UiOp()
+}
 
-​        object Show: UiOp()
-
-​        object Hide: UiOp()
-
-​        class TranslateX(val px: Float): UiOp()
-
-​        class TranslateY(val px: Float): UiOp()
-
-​      }
-
-​      
-
-​       
-
-​      
-
-​      fun execute(view: View, op: UiOp) = when (op) {
-
-​        UiOp.Show -> view.visibility = View.VISIBLE
-
-​        UiOp.Hide -> view.visibility = View.GONE
-
-​        is UiOp.TranslateX -> view.translationX = op.px 
-
-// 这个 when 语句分支不仅告诉 view 要水平移动，还告诉 view 需要移动多少距离，这是枚举等 Java 传统思想不容易实现的
-
-​        is UiOp.TranslateY -> view.translationY = op.px
-
-​      } 
+      
+fun execute(view: View, op: UiOp) = when (op) {
+    UiOp.Show -> view.visibility = View.VISIBLE
+    UiOp.Hide -> view.visibility = View.GONE
+    is UiOp.TranslateX -> view.translationX = op.px 
+    // 这个 when 语句分支不仅告诉 view 要水平移动，还告诉 view 需要移动多少距离，这是枚举等 Java 传统思想不容易实现的
+    is UiOp.TranslateY -> view.translationY = op.px
+}
 ```
 
 
@@ -3278,23 +3245,24 @@ sealed class UiOp {
 以上代码中，TranslateX 是一个类，它可以携带多于一个的信息，比如除了告诉 view 需要水平平移之外，还可以告诉 view 平移多少像素，甚至还可以告诉 view 平移的动画类型等信息，我想这大概就是密封类出现的意义吧。 除此之外，如果 when 语句的分支不需要携带除“显示或隐藏view之外的其它信息”时（即只需要表明 when 语句分支，不需要携带额外数据时），用 object 关键字创建单例就可以了，并且此时 when 子句不需要使用 is 关键字。只有需要携带额外信息时才定义密封类的子类，而且使用了密封类就不需要使用 else 子句，每当我们多增加一个密封类的子类或单例，编译器就会在 when 语句中给出提示，可以在编译阶段就及时发现错误，这也是以往 switch-case 语句和枚举不具备的功能。 最后，我们甚至可以把这一组操作封装成一个函数，以便日后调用，如下： 
 
 ```
-      // 先封装一个UI操作列表 
-       class Ui(val uiOps: List = emptyList()) {
-​        operator fun plus(uiOp: UiOp) = Ui(uiOps + uiOp)
-​      }
-​      
-​      // 定义一组操作
-​      val ui = Ui() +
-​          UiOp.Show +
-​          UiOp.TranslateX(20f) +
-​          UiOp.TranslateY(40f) +
-​          UiOp.Hide
-​      // 定义调用的函数
-​      fun run(view: View, ui: Ui) {
-​        ui.uiOps.forEach { execute(view, it) }
-​      }
+// 先封装一个UI操作列表 
+class Ui(val uiOps: List = emptyList()) {
+   operator fun plus(uiOp: UiOp) = Ui(uiOps + uiOp)
+}
 
-​      run(view, ui) // 最终调用 xinyuli  
+// 定义一组操作
+val ui = Ui() +
+ UiOp.Show +
+ UiOp.TranslateX(20f) +
+ UiOp.TranslateY(40f) +
+ UiOp.Hide
+ 
+// 定义调用的函数
+fun run(view: View, ui: Ui) {
+    ui.uiOps.forEach { execute(view, it) }
+}
+
+run(view, ui) // 最终调用  
 ```
 
 
@@ -3467,27 +3435,18 @@ Kotlin 中没有通配符类型，它有两个其他的东西：声明处型变�
 // 定义一个支持协变的类
 
 class Runoob<out A>(val a: A) {
-
   fun foo(): A {
-
-​    return a
-
+    return a
   }
-
 }
 
  
 
 fun main(args: Array<String>) {
-
   var strCo: Runoob<String> = Runoob("a")
-
   var anyCo: Runoob<Any> = Runoob<Any>("b")
-
   anyCo = strCo
-
   println(anyCo.foo())  // 输出 a
-
 }
 ```
 
@@ -3538,24 +3497,24 @@ fun main(args: Array<String>) {
 
 ```
 class A<T>(val t: T, val t2 : T, val t3 : T)
-​      class Apple(var name : String)
+      class Apple(var name : String)
 
-​      fun main(args: Array<String>) {
-​        //使用类  
-​        val a1: A<*> = A(12, "String", Apple("苹果"))
-​        val a2: A<Any?> = A(12, "String", Apple("苹果"))  //和a1是一样的
-​        val apple = a1.t3  //参数类型为Any
-​        println(apple)
+      fun main(args: Array<String>) {
+        //使用类  
+        val a1: A<*> = A(12, "String", Apple("苹果"))
+        val a2: A<Any?> = A(12, "String", Apple("苹果"))  //和a1是一样的
+        val apple = a1.t3  //参数类型为Any
+        println(apple)
 
-​        val apple2 = apple as Apple  //强转成Apple类
-​        println(apple2.name)
+        val apple2 = apple as Apple  //强转成Apple类
+        println(apple2.name)
 
-​        //使用数组
-​        val l:ArrayList<*> = arrayListOf("String",1,1.2f,Apple("苹果"))
-​        for (item in l){
-​          println(item)
-​        }
-​ }
+        //使用数组
+        val l:ArrayList<*> = arrayListOf("String",1,1.2f,Apple("苹果"))
+        for (item in l){
+          println(item)
+        }
+ }
 ```
 
 
@@ -3608,11 +3567,11 @@ enum class Shape(value:Int) {
 ```
 enum class ProtocolState {
   WAITING {
-​    override fun signal() = TALKING
+    override fun signal() = TALKING
   },
 
   TALKING {
-​    override fun signal() = WAITING
+    override fun signal() = WAITING
   };
 
   abstract fun signal(): ProtocolState
@@ -3918,9 +3877,9 @@ x.xxx
 
 
 
-**注意：**一个类里面只能声明一个内部关联对象，即关键字 companion 只能使用一次。
+**注意：一个类里面只能声明一个内部关联对象，即关键字 companion 只能使用一次。**
 
-请伴生对象的成员看起来像其他语言的静态成员，但在运行时他们仍然是真实对象的实例成员。例如还可以实现接口：
+伴生对象的成员看起来像其他语言的静态成员，但在运行时他们仍然是真实对象的实例成员。例如还可以实现接口：
 
 ```
 interface Factory<T> {
@@ -3940,11 +3899,15 @@ class MyClass {
 
 对象表达式和对象声明之间有一个重要的语义差别：
 
-​           对象表达式是在使用他们的地方立即执行的
+```
+对象表达式是在使用他们的地方立即执行的
 
-​           对象声明是在第一次被访问到时延迟初始化的
+对象声明是在第一次被访问到时延迟初始化的
 
-​           伴生对象的初始化是在相应的类被加载（解析）时，与 Java 静态初始化器的语义相匹配
+伴生对象的初始化是在相应的类被加载（解析）时，与 Java 静态初始化器的语义相匹配
+```
+
+
 
  
 
@@ -4134,8 +4097,6 @@ fun main(args: Array<String>) {
 
 一个常见的用例是在一个映射（map）里存储属性的值。 这经常出现在像解析 JSON 或者做其他"动态"事情的应用中。 在这种情况下，你可以使用映射（map）实例自身作为委托（委托给该map实例）来实现委托属性。
 
-
-
 val map只能代理val属性，不能代理var属性，因为不能被赋值（没有资格完成全部的代理）
 
 var map可以代理var属性也可一代理val属性，但注意对属性修改时，调用的是map的修改方法，而不是调用被代理对象的修改方法
@@ -4180,7 +4141,7 @@ class Site(val map: MutableMap<String, Any?>) {
 
 fun main(args: Array<String>) {
 
-  var map:MutableMap<String, Any?> = mutableMapOf(    // mutableMapOf()方法的使用留意一下
+  var map: MutableMap<String, Any?> = mutableMapOf(    // mutableMapOf()方法的使用留意一下
     "name" to "菜鸟教程",
     "url" to "www.runoob.com"
   )
@@ -4298,11 +4259,11 @@ provideDelegate 的一个可能的使用场景是在创建属性时（而不仅�
 class ResourceLoader<T>(id: ResourceID<T>) {
 
   operator fun provideDelegate(
-​      thisRef: MyUI,
-​      prop: KProperty<*>
+      thisRef: MyUI,
+      prop: KProperty<*>
   ): ReadOnlyProperty<MyUI, T> {
-​    checkProperty(thisRef, prop.name)
-​    // 创建委托
+    checkProperty(thisRef, prop.name)
+    // 创建委托
   }
 
   private fun checkProperty(thisRef: MyUI, name: String) { …… }
@@ -4337,8 +4298,8 @@ class MyUI {
 
  
 fun <T> MyUI.bindResource(
-​    id: ResourceID<T>,
-​    propertyName: String
+    id: ResourceID<T>,
+    propertyName: String
 ): ReadOnlyProperty<MyUI, T> {
   checkProperty(this, propertyName)
   // 创建委托
@@ -4361,7 +4322,7 @@ class C {
   private val prop$delegate = MyDelegate().provideDelegate(this, this::prop)
 
   val prop: Type
-​    get() = prop$delegate.getValue(this, this::prop)
+    get() = prop$delegate.getValue(this, this::prop)
 }
 ```
 
