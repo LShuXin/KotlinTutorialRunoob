@@ -3750,8 +3750,8 @@ class C {
   }
 
   fun bar() {
-    val x1 = foo().x    // 没问题
-    val x2 = publicFoo().x // 错误：未能解析的引用“x”
+    val x1 = foo().x          // 没问题
+    val x2 = publicFoo().x    // 错误：未能解析的引用“x”
   }
 }
 ```
@@ -3788,7 +3788,7 @@ Kotlin 使用 object 关键字来声明一个对象。
 Kotlin 中我们可以方便的通过对象声明来获得一个单例。
 
 ```
-// 这里的DataProviderManager就是单例，而且只能当作单例使用
+// 这里的DataProviderManager就是单例，而且只能当作单例使用, 使用“DataProviderManager”就能直接引用到这个单例
 object DataProviderManager {
   fun registerDataProvider(provider: DataProvider) {
     // ……
@@ -3884,7 +3884,7 @@ class Site {
 fun main(args: Array<String>) {
   var site = Site()
   site.DeskTop.url // 错误，不能通过外部类的实例访问到该对象
-  Site.DeskTop.url // 正确
+  Site.DeskTop.url // 正确，通过外部类名可以访问到生命的对象
 }
 
 ```
@@ -4260,7 +4260,7 @@ memoizedFoo 变量只会在第一次访问时计算。 如果 someCondition 失�
 
  
 
-## 翻译规则
+### 翻译规则
 
 在每个委托属性的实现的背后，Kotlin 编译器都会生成辅助属性并委托给它。 例如，对于属性 prop，生成隐藏属性 prop$delegate，而访问器的代码只是简单地委托给这个附加属性：
 
@@ -4286,7 +4286,7 @@ Kotlin 编译器在参数中提供了关于 prop 的所有必要信息：第一�
 
  
 
-## 提供委托
+### 提供委托
 
 通过定义 provideDelegate 操作符，可以扩展创建属性实现所委托对象的逻辑。 如果 by 右侧所使用的对象将 provideDelegate 定义为成员或扩展函数，那么会调用该函数来创建属性委托实例。
 
