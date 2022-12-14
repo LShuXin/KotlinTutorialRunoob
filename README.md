@@ -1,6 +1,6 @@
 # Kotlin教程
 
- Kotlin 是一种在 Java 虚拟机上运行的静态类型编程语言，被称之为 Android 世界的 Swift，由 JetBrains 设计开发并开源。
+Kotlin 是一种在 Java 虚拟机上运行的静态类型编程语言，被称之为 Android 世界的 Swift，由 JetBrains 设计开发并开源。
 
 Kotlin 可以编译成Java字节码，也可以编译成 JavaScript，方便在没有 JVM 的设备上运行。
 
@@ -368,11 +368,17 @@ Android Studio 3.0 在当前对话框中提供启用 Kotlin 支持的选项，�
 
 打开 MainActivity.java 文件，通过菜单栏依次调出 Code | Convert Java File to Kotlin File：
 
+
+
 ![img](./clip_image025.png)
+
+
 
 转换完成后即可看到使用 Kotlin 编写的 activity。
 
 ![img](./clip_image026.png)
+
+
 
 **java 继承用 extends， kotlin 继承用冒号**
 
@@ -463,9 +469,7 @@ kotlin.text.*
 
 ```
 fun sum(a: Int, b: Int): Int {  // Int 参数，返回值 Int
-
   return a + b
-
 }
 ```
 
@@ -485,9 +489,7 @@ public fun sum(a: Int, b: Int): Int = a + b  // public 方法则必须明确写�
 
 ```
 fun printSum(a: Int, b: Int): Unit { 
-
   print(a + b)
-
 }
 ```
 
@@ -508,9 +510,9 @@ public fun printSum(a: Int, b: Int) {
 函数的变长参数可以用 **vararg** 关键字进行标识：
 
 ```
-fun vars(vararg v:Int) {
+fun vars(vararg v: Int) {
 
-  for(vt in v) {
+  for (vt in v) {
     print(vt)
   }
 
@@ -526,8 +528,6 @@ fun main(args: Array<String>) {
 
 
 
-
-
 ### **lambda(匿名函数)**
 
 lambda表达式使用实例：
@@ -536,7 +536,7 @@ lambda表达式使用实例：
 // 测试
 fun main(args: Array<String>) {
 
-  val sumLambda: (Int, Int) -> Int = {x,y -> x + y}
+  val sumLambda: (Int, Int) -> Int = {x, y -> x + y}
 
   println(sumLambda(1, 2)) // 输出 3
 
@@ -654,15 +654,13 @@ val ages2 = age?.toInt() ?: -1
 
 **当一个引用可能为 null值时, 对应的类型声明必须明确地标记为可为 null。**
 
-**当str中的字符串内容不是一个整数时,返回null:**
+**当str中的字符串内容不是一个整数时, 返回null:**
 
  
 
 ```
 fun parseInt(str: String): Int? {
-
  // ...
-
 }
 ```
 
@@ -670,17 +668,12 @@ fun parseInt(str: String): Int? {
 
 以下实例演示如何使用一个返回值可为 null 的函数:
 
- 
-
 ```
 fun main(args: Array<String>)  {
 
    if (args.size < 2) {
-
       print("Two integers expected")
-
       return
-
    }
    
    val x = parseInt(args[0])
@@ -704,22 +697,21 @@ fun main(args: Array<String>)  {
 ```
 fun getStringLength(obj: Any): Int? {
    if (obj is String)  {
-​      // 做过类型判断以后，obj会被系统自动转换为String类型
-​      return obj.length
+      // 做过类型判断以后，obj会被系统自动转换为String类型
+      return obj.length
    }
 
  
    // 在这里还有一种方法，与Java中instanceof不同，使用!is
-
    //  if (obj !is String){
    //      // XXX
    // }
 
    // 这里的obj仍然是Any类型的引用
-
+   
    return null
 
-
+}
 ```
 
 
@@ -732,7 +724,7 @@ fun getStringLength(obj: Any): Int? {
 fun getStringLength(obj: Any): Int? {
 
  if (obj !is String) {
-  return null
+    return null
  }
 
  // 在这个分支中, `obj` 的类型会被自动转换为 `String`
@@ -750,13 +742,12 @@ fun getStringLength(obj: Any): Int? {
 ```
 fun getStringLength(obj: Any): Int? {
 
- // 在 && 运算符的右侧, obj 的类型会被自动转换为 String
+  // 在 && 运算符的右侧, obj 的类型会被自动转换为 String
+  if (obj is String && obj.length > 0) {
+  	return obj.length 
+  }
 
- if (obj is String && obj.length > 0) {
-  return obj.length 
- }
-
- return null
+  return null
 }
 ```
 
@@ -789,9 +780,8 @@ fun getStringLength(obj: Any): Int? {
   
  
  // 使用 until 函数排除结束元素
- 
- for (i in 1 until 10) {  // i in [1, 10) 排除了 10
-    println(i)            // swift 中使用三个点包含结尾，使用两个点不包含结尾
+ for (i in 1 until 10) {               // i in [1, 10) 排除了 10
+    println(i)                         // swift 中使用三个点包含结尾，使用两个点不包含结尾
  }
  ```
 
@@ -803,19 +793,19 @@ fun getStringLength(obj: Any): Int? {
 fun main(args: Array<String>) {
 
   print("循环输出：")
-  for (i in 1..4) print(i) // 输出“1234”
+  for (i in 1..4) print(i)                   // 输出“1234”
 
   println("\n----------------")
 
   print("设置步长：")
 
-  for (i in 1..4 step 2) print(i) // 输出“13”
+  for (i in 1..4 step 2) print(i)            // 输出“13”
 
   println("\n----------------")
 
   print("使用 downTo：")
 
-  for (i in 4 downTo 1 step 2) print(i) // 输出“42”
+  for (i in 4 downTo 1 step 2) print(i)      // 输出“42”
 
   println("\n----------------")
 
@@ -823,9 +813,9 @@ fun main(args: Array<String>) {
 
   // 使用 until 函数排除结束元素
 
-  for (i in 1 until 4) {  // i in [1, 4) 排除了 4
+  for (i in 1 until 4) {                     // i in [1, 4) 排除了 4
 
-​    print(i)
+    print(i)
 
   }
 
@@ -911,25 +901,24 @@ val bytes = 0b11010010_01101001_10010100_10010010
 
 Kotlin 中没有基础数据类型，只有封装的数字类型，你每定义的一个变量，其实 Kotlin 帮你封装了一个对象，这样可以保证不会出现空指针。数字类型也一样，所以在比较两个数字的时候，就有比较数据大小和比较两个对象是否相同的区别了。
 
-**在 Kotlin 中，三个等号 ===表示比较对象地址，两个 ==表示比较两个值大小**。 
+**在 Kotlin 中，三个等号 ===表示比较对象地址，两个 == 表示比较两个值大小**。 
 
 ```
 fun main(args: Array<String>)  {
 
   val a: Int = 10000
-  println(a === a) // true，值相等，对象地址相等
+  println(a === a)                          // true，值相等，对象地址相等
 
  
 
   //经过了装箱，创建了两个不同的对象
-
   val boxedA: Int? = a
   val anotherBoxedA: Int? = a
 
  
   //虽然经过了装箱，但是值是相等的，都是10000
-  println(boxedA === anotherBoxedA) // false，值相等，对象地址不一样
-  println(boxedA == anotherBoxedA)  // true，值相等
+  println(boxedA === anotherBoxedA)         // false，值相等，对象地址不一样
+  println(boxedA == anotherBoxedA)          // true，值相等
 
 }
 ```
@@ -941,8 +930,8 @@ fun main(args: Array<String>)  {
 由于不同的表示方式，较小类型并不是较大类型的子类型，较小的类型不能隐式转换为较大的类型。 这意味着在不进行显式转换的情况下我们不能把 Byte 型值赋给一个 Int 变量。
 
  ```
- val b: Byte = 1     // OK, 字面值是静态检测的
- val i: Int = b      // 错误
+ val b: Byte = 1           // OK, 字面值是静态检测的
+ val i: Int = b            // 错误
  ```
 
 
@@ -1008,12 +997,12 @@ inv() – 反向
 
 **字符**
 
-**和  Java 不一样，Kotlin 中的 Char 不能直接和数字操作，Char 必需是单引号 **'** 包含起来的。比如普通字符 '0'，'a'。**
+**和  Java 不一样，Kotlin 中的 Char 不能直接和数字操作，Char 必需是单引号 '** 包含起来的。比如普通字符 '0'，'a'。
 
  ```
  fun check(c: Char) {
    if (c == 1) { // 错误：类型不兼容
- ​    // ……
+     // ……
    }
  }
  ```
@@ -1024,16 +1013,14 @@ inv() – 反向
 
  
 
-我们可以显式把字符转换为 Int 数字：
-
- 
+我们可以显式把字符转换为 Int 数字： 
 
 ```
 fun decimalDigitValue(c: Char): Int {
-    if (c !in '0'..'9') {          // c !in xxx, 而不是 ！ c in xxx
+    if (c !in '0'..'9') {                               // c !in xxx, 而不是 ！ c in xxx
         throw IllegalArgumentException("Out of range")
     }
-    return c.toInt() - '0'.toInt() // 显式转换为数字
+    return c.toInt() - '0'.toInt()                      // 显式转换为数字
 }
 ```
 
@@ -1068,30 +1055,24 @@ fun decimalDigitValue(c: Char): Int {
 ```
 fun main(args: Array<String>)  {
 
-​    // [1,2,3]
+    // [1,2,3]
+    val a = arrayOf(1, 2, 3)
 
-​    val a = arrayOf(1, 2, 3)
+    // [0,2,4]
+    val b = Array(3, {i -> (i * 2)})
 
-​    // [0,2,4]
-
-​    val b = Array(3, { i -> (i * 2) })
-
-​    // 读取数组内容
-
-​    println(a[0])  // 输出结果：1
-
-​    println(b[1])  // 输出结果：2
+    // 读取数组内容
+    println(a[0])  // 输出结果：1
+    println(b[1])  // 输出结果：2
 
 }
 ```
 
 
 
- 
-
 **如上所述，[]运算符代表调用成员函数get()和set()。**
 
-注意: 与 Java 不同的是，Kotlin 中数组是不协变的（invariant）。// /？？？？？？？？？？？/
+注意: 与 Java 不同的是，Kotlin 中数组是不协变的（invariant）。**⚠️**
 
  
 
@@ -1106,7 +1087,7 @@ x[0] = x[1] + x[2]
 
 **字符串**
 
-**和** **Java** **一样，String 是不可变的。**方括号 [] 语法可以很方便的获取字符串中的某个字符，也可以通过 for 循环来遍历：
+**和** **Java一样，String 是不可变的。方括号 [] 语法可以很方便的获取字符串中的某个字符，也可以通过 for 循环来遍历**：
 
 ```
 for (c in str)  {
@@ -1118,43 +1099,33 @@ for (c in str)  {
 
 **Kotlin** **支持三个引号** **"""** **扩起来的字符串，支持多行字符串**，比如：
 
- 
-
+```
 fun main(args: Array<String>)  {
 
   val text = """
-
   多行字符串
-
   多行字符串
-
   """
 
-  println(text)  // 输出有一些前置空格
-
+  println(text)                  // 输出有一些前置空格
 }
+```
 
- 
+
 
 **String** **可以通过** **trimMargin()** **方法来删除多余的空白。**
 
-fun main(args: Array<String>)  {
-
 ```
+  fun main(args: Array<String>)  {
+  
   val text = """
-
   |多行字符串
-
   |菜鸟教程
-
   |多行字符串
-
   |Runoob
-
   """.trimMargin()
 
   println(text)  // 前置空格删除了
-
 } 
 ```
 
